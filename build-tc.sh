@@ -56,7 +56,6 @@ tg_post_msg "<b>$LLVM_NAME: Building LLVM. . .</b>"
 	--targets "ARM;AArch64" \
 	--defines "LLVM_PARALLEL_COMPILE_JOBS=$(nproc) LLVM_PARALLEL_LINK_JOBS=$(nproc)" \
 	--shallow-clone \
-	--lto thin \
 	--incremental \
 	--build-type "Release" 2>&1 | tee build.log
 
