@@ -53,6 +53,7 @@ tg_post_msg "<b>$LLVM_NAME: Building LLVM. . .</b>"
 	--clang-vendor "$LLVM_NAME" \
 	--projects "clang;lld;polly" \
 	--targets "ARM;AArch64" \
+	--defines "LLVM_PARALLEL_COMPILE_JOBS=$(nproc) LLVM_PARALLEL_LINK_JOBS=$(nproc)" \
 	--shallow-clone \
 	--lto thin \
 	--incremental \
