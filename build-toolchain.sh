@@ -16,7 +16,7 @@ msg "Building LLVM..."
 	--incremental \
 	--projects "clang;lld;polly" \
 	--pgo kernel-defconfig \
-	--lto thin
+	--lto full
 
 # Build binutils
 msg "Building binutils..."
