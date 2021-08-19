@@ -12,7 +12,7 @@ msg "Building LLVM..."
 ./build-llvm.py \
 	--clang-vendor "Vortex" \
 	--targets "ARM;AArch64" \
-	--defines "LLVM_PARALLEL_COMPILE_JOBS=$(nproc) LLVM_PARALLEL_LINK_JOBS=$(nproc)" \
+	--defines "LLVM_PARALLEL_COMPILE_JOBS=$(nproc) LLVM_PARALLEL_LINK_JOBS=$(nproc) CMAKE_C_FLAGS=-O3 CMAKE_CXX_FLAGS=-O3" \
 	--incremental \
 	--projects "clang;lld;polly" \
 	--pgo kernel-defconfig \
