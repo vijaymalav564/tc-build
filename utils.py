@@ -48,7 +48,6 @@ def download_binutils(folder):
             "https://ftp.gnu.org/gnu/binutils/" + binutils_tarball.name
         ],
                        check=True)
-        verify_binutils_checksum(binutils_tarball)
         # Extract the tarball then remove it
         subprocess.run(["tar", "-xJf", binutils_tarball.name],
                        check=True,
