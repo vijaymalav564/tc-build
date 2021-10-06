@@ -1,21 +1,25 @@
-name: xRageChain Toolchain
+name: LLVM Toolchain
 on: 
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: Actions
     steps:
       - name: Download scripts
         uses: actions/checkout@v2
 
+      - name: Get deps
+        run: ./ci.sh deps
+
       - name: Deploy builder
         env:
-          PACKET_TOKEN: ${{ secrets.PACKET_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          PACKET_SSH_KEY: ${{ secrets.PACKET_SSH_KEY }}
-          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          LLVM_NAME: ${{ secrets.LLVM_NAME}}
           TG_TOKEN: ${{ secrets.TG_TOKEN }}
-          GIT_AUTHOR_NAME: ${{ secrets.GIT_AUTHOR_NAME }}
-          GIT_AUTHOR_EMAIL: ${{ secrets.GIT_AUTHOR_EMAIL }}
+          TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
+          GH_USERNAME: ${{ secrets.GH_USERNAME }}
+          GH_EMAIL: ${{ secrets.GH_EMAIL }}
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_PUSH_REPO_URL: ${{ secrets.GH_PUSH_REPO_URL }}
         run: ./build-tc.sh
