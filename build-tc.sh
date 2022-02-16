@@ -54,7 +54,6 @@ tg_post_msg "<b>$LLVM_NAME: Building LLVM. . .</b>"
 	--defines "LLVM_PARALLEL_COMPILE_JOBS=$(nproc) LLVM_PARALLEL_LINK_JOBS=$(nproc) CMAKE_C_FLAGS=-O3 CMAKE_CXX_FLAGS=-O3" \
 	--projects "clang;lld;polly;compiler-rt" \
 	--targets "ARM;AArch64;X86" \
-        --lto thin \
 	--defines "LLVM_PARALLEL_COMPILE_JOBS=$(nproc) LLVM_PARALLEL_LINK_JOBS=$(nproc)" \
 	--shallow-clone \
 	--incremental \
@@ -73,7 +72,7 @@ tg_post_msg "<b>$LLVM_NAME: Building Binutils. . .</b>"
 ./build-binutils.py --targets arm aarch64 x86_64
 
 # Remove unused products
-rm -fr install/include install/lib/libclang-cpp.so.14git
+rm -fr install/include install/lib/libclang-cpp.so.14git install/lib/libclang-cpp.so.15git
 rm -f install/lib/*.a install/lib/*.la
 
 # Strip remaining products
