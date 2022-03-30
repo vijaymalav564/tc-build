@@ -22,7 +22,7 @@ def current_binutils():
     Simple getter for current stable binutils release
     :return: The current stable release of binutils
     """
-    return "binutils-2.31"
+    return "binutils-2.33.1"
 
 
 def download_binutils(folder):
